@@ -38,6 +38,7 @@
   "homepage": "https://github.com/somebrel/qti2json#readme",
   "devDependencies": {
     "babel-cli": "6.24.0",
+    "babel-plugin-transform-object-rest-spread": "6.23.0",
     "babel-preset-env": "1.2.2",
     "jest": "19.0.2",
     "rimraf": "2.6.1"
