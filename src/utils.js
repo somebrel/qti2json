@@ -10,3 +10,17 @@ export function filterObject(fullObj, keys) {
 
   return obj;
 }
+
+export function getAttributes(attributesName, qtiAttributeObj) {
+  const attributes = {};
+
+  for (let key in qtiAttributeObj) {
+    let attribute = qtiAttributeObj[key];
+
+    if (attributesName.indexOf(attribute.name) > -1) {
+      attributes[attribute.name] = attribute.value;
+    }
+  }
+
+  return attributes;
+}
