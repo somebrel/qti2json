@@ -1,14 +1,18 @@
-export function filterObject(fullObj, keys) {
-  if (fullObj == null) return null;
-  if (keys == null) return fullObj;
+export function getChildren(childrenName, qtiAttributeObj) {
+  const children = [];
 
-  const obj = {};
+  for (let key in qtiAttributeObj) {
+    let child = qtiAttributeObj[key];
 
-  keys.forEach(key => {
-    obj[key] = fullObj[key];
-  });
+    if (childrenName.indexOf(child.nodeName) > -1) {
+      children.push({
+        name: child.nodeName,
+        children: child.childNodes
+      });
+    }
+  }
 
-  return obj;
+  return children;
 }
 
 export function getAttributes(attributesName, qtiAttributeObj) {
@@ -23,4 +27,17 @@ export function getAttributes(attributesName, qtiAttributeObj) {
   }
 
   return attributes;
+}
+
+export function filterObject(fullObj, keys) {
+  if (fullObj == null) return null;
+  if (keys == null) return fullObj;
+
+  const obj = {};
+
+  keys.forEach(key => {
+    obj[key] = fullObj[key];
+  });
+
+  return obj;
 }
